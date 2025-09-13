@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { BookRoomDto } from './dtos/bookRoomDto';
+import { BookRoomDto } from './dtos/book_room_dto';
 import { Room } from './room.interface';
 
 @Injectable()
@@ -110,10 +110,10 @@ export class HotelReservationService {
             const randomR = Math.floor(Math.random() * l);
             this.hotel[randomF][randomR].isAvailable=false;
         }
-
+        return this.hotel;
     }
 
-    resetBooking():any{
+    resetBooking(){
         this.hotel.forEach((floor)=>{
             floor.forEach((r)=>{
                 r.isAvailable= true;
